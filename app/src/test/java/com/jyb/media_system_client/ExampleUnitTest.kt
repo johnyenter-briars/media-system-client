@@ -1,4 +1,4 @@
-package com.example.media_system_client
+package com.jyb.media_system_client
 
 import org.junit.Test
 

@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.media_system_client"
+        applicationId "com.jyb.media_system_client"
         minSdk 21
         targetSdk 31
         versionCode 1
