@@ -21,10 +21,7 @@ data class Country(val name: String, val capital: String, val languages: List<La
 
 data class Language(val name: String)
 
-fun getFileList(): ArrayList<String> {
-    val listOfFiles = ArrayList<String>()
-    listOfFiles.add("test")
-    listOfFiles.add("test")
+fun makeFileListRequest() {
     var url = "http://192.168.0.8"
 
     val request = Request.Builder()
@@ -77,6 +74,4 @@ fun getFileList(): ArrayList<String> {
 //        }
 //
 //    })
-
-    return listOfFiles
 }

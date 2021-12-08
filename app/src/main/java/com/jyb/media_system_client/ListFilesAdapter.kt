@@ -1,14 +1,5 @@
 package com.jyb.media_system_client
-
-import android.database.DataSetObserver
-import org.json.JSONException
-import org.json.JSONObject
 import android.widget.ArrayAdapter
-//import kotlinx.serialization.*
-//import kotlinx.serialization.json.JSON
-//
-//@Serializable
-//data class MyModel(val a: Int, @Optional val b: String = "42")
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 
@@ -26,27 +17,8 @@ data class Element(val type: String,
                    val size: Int,
                    )
 
-
-//class Response(json: String) : JSONObject(json) {
-//    val type: String? = this.optString("type")
-//    val data = this.optJSONArray("data")
-//        ?.let { 0.until(it.length()).map { i -> it.optJSONObject(i) } } // returns an array of JSONObject
-//        ?.map { Root(it.toString()) } // transforms each JSONObject of the array into Foo
-//}
-
-class Foo(json: String) : JSONObject(json) {
-    val id = this.optInt("id")
-    val title: String? = this.optString("title")
-}
-//class Root(json: String) : JSONObject(json) {
-//    val elements: List<Element>  = this.opt("element") as List<Element>
-//}
-//class Element(json: String) : JSONObject(json) {
-//    val type = this.optString("title")
-//    val uid = this.optInt("title")
-//}
-
 public var FilesArrayAdapter: ArrayAdapter<String>? = null
+public var FilesList: ArrayList<String> = ArrayList()
 public var rawString: String = ""
 
 public fun initAdapter(col: ArrayList<String>, context: android.content.Context) {
@@ -57,16 +29,14 @@ public fun updateAdapter(jsonString: String) {
     if (FilesArrayAdapter == null) {
         println("um... idk what to do")
     }
-    val json = """{"name": "bezkoder", "age": "26", "messages" : ["hello","becoming zKoder"]}"""
+
     val mapper = jacksonObjectMapper()
 
-    println("=== JSON to Kotlin Object ===")
-    println("1- read String")
     var r = mapper.readValue<BigRoot>(jsonString)
 
-    var idk = r.root.element[0].uid
-
-
+    for(element in r.root.element) {
+        FilesList.add(element.uri)
+    }
 }
 
 public class ListFilesAdapter {

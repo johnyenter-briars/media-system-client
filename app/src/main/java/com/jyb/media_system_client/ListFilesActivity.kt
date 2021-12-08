@@ -1,7 +1,9 @@
 package com.jyb.media_system_client
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 
@@ -12,8 +14,15 @@ class ListFilesActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.FilesListView)
 
-        initAdapter(getFileList(), this)
+        makeFileListRequest()
+
+        initAdapter(FilesList, this)
 
         listView.adapter = FilesArrayAdapter
+    }
+
+
+    public fun updateList(view: View): Unit {
+        FilesArrayAdapter?.addAll(FilesList)
     }
 }
