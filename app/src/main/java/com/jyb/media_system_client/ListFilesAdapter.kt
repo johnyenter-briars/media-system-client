@@ -26,6 +26,7 @@ public fun initAdapter(col: ArrayList<String>, context: android.content.Context)
 }
 
 public fun updateAdapter(jsonString: String) {
+    FilesList.clear()
     if (FilesArrayAdapter == null) {
         println("um... idk what to do")
     }
