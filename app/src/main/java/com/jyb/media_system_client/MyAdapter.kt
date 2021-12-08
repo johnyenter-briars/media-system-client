@@ -3,7 +3,6 @@ package com.jyb.media_system_client
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.example.media_system_client.R
 
 //class MyAdapter : BaseAdapter() {
 //    override fun getCount(): Int {

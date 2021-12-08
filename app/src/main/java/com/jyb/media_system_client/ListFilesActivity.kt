@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.example.media_system_client.R
 
 class ListFilesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,12 +12,7 @@ class ListFilesActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.FilesListView)
 
-        val array = ArrayList<String>()
-        array.add("test")
-        array.add("test")
-
-        val arrayAdapter = ArrayAdapter(this, R.layout.file_text_view, array)
-
+        var arrayAdapter = ArrayAdapter(this, R.layout.file_text_view, getFileList())
         listView.adapter = arrayAdapter
     }
 }
