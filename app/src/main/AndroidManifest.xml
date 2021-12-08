@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediasystemclient"
+        android:usesCleartextTraffic="true"
         >
         <activity
             android:name="com.jyb.media_system_client.MainActivity"

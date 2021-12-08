@@ -11,9 +11,9 @@ import retrofit2.*
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-interface CountriesService {
+interface NetworkService {
     @GET("/rest/v2/all")
-    fun listCountries(): Call<List<Country>>
+    fun doTheNetworkThing(): Call<String>
 }
 
 data class Country(val name: String, val capital: String, val languages: List<Language>)
@@ -24,31 +24,33 @@ fun getFileList(): ArrayList<String> {
     val listOfFiles = ArrayList<String>()
     listOfFiles.add("test")
     listOfFiles.add("test")
-    var url = "http://localhost:8000/api/list/%2Fhome%2Fjohn%2Fvids"
+    var url = "http://192.168.0.8/api/list/%2Fhome%2Fpi%2Fvids/"
 
-    val URL_COUNTRY_API = "https://google.com"
+//    val URL_COUNTRY_API = "https://google.com"
 
     val retro = Retrofit.Builder()
-        .baseUrl(URL_COUNTRY_API)
+        .baseUrl(url)
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
-    val service = retro.create(CountriesService::class.java)
+    val service = retro.create(NetworkService::class.java)
 
-    val countryRequest = service.listCountries()
+    val countryRequest = service.doTheNetworkThing()
 
-    countryRequest.enqueue(object : Callback<List<Country>> {
-        override fun onResponse(call: Call<List<Country>>, response: Response<List<Country>>) {
-            val allCountry = response.body()
-            for (c in allCountry!!)
-                Log.v(
-                    MainActivity::class.simpleName,
-                    "NAME: ${c.name} \n CAPITAL: ${c.capital} \n Language: ${c.languages} "
-                )
+    countryRequest.enqueue(object : Callback<String> {
+        override fun onResponse(call: Call<String>, response: Response<String>) {
+            val text = response.body()
+
+//            for (c in allCountry!!)
+//                Log.v(
+//                    MainActivity::class.simpleName,
+//                    "NAME: ${c.name} \n CAPITAL: ${c.capital} \n Language: ${c.languages} "
+//                )
+            var idk = text
         }
 
 
-        override fun onFailure(call: Call<List<Country>>, t: Throwable) {
+        override fun onFailure(call: Call<String>, t: Throwable) {
             Log.i(MainActivity::class.simpleName, "on FAILURE!!!!")
         }
 
