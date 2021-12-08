@@ -3,6 +3,8 @@ package com.jyb.media_system_client
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -14,7 +16,7 @@ class ListFilesActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.FilesListView)
 
-        makeFileListRequest()
+//        makeFileListRequest()
 
         initAdapter(FilesList, this)
 
@@ -23,6 +25,20 @@ class ListFilesActivity : AppCompatActivity() {
 
 
     public fun updateList(view: View): Unit {
-        FilesArrayAdapter?.addAll(FilesList)
+        makeFileListRequest()
+
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                // This method will be executed once the timer is over
+                val idk: ArrayList<String> = ArrayList()
+                idk.add("please")
+                idk.add("please")
+                idk.add("please")
+                var foo: ArrayList<String> = FilesList.clone() as ArrayList<String>
+                FilesArrayAdapter?.clear()
+                FilesArrayAdapter?.addAll(foo)
+            },
+            2000 // value in milliseconds
+        )
     }
 }

@@ -43,35 +43,4 @@ fun makeFileListRequest() {
             }
         }
     })
-
-//    val URL_COUNTRY_API = "https://google.com"
-
-
-//    val retro = Retrofit.Builder()
-//        .baseUrl(url)
-//        .addConverterFactory(MoshiConverterFactory.create())
-//        .build()
-//
-//    val service = retro.create(NetworkService::class.java)
-//
-//    val countryRequest = service.doTheNetworkThing()
-//
-//    countryRequest.enqueue(object : Callback<String> {
-//        override fun onResponse(call: Call<String>, response: Response<>) {
-//            val text = response.body()
-//
-////            for (c in allCountry!!)
-////                Log.v(
-////                    MainActivity::class.simpleName,
-////                    "NAME: ${c.name} \n CAPITAL: ${c.capital} \n Language: ${c.languages} "
-////                )
-//            var idk = text
-//        }
-//
-//
-//        override fun onFailure(call: Call<String>, t: Throwable) {
-//            Log.i(MainActivity::class.simpleName, "on FAILURE!!!!")
-//        }
-//
-//    })
 }
