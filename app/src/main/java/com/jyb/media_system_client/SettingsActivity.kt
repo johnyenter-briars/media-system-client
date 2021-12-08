@@ -3,7 +3,6 @@ package com.jyb.media_system_client
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
-import com.example.media_system_client.R
 
 class SettingsActivity : AppCompatActivity() {
 
