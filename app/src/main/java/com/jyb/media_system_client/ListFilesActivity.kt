@@ -12,7 +12,8 @@ class ListFilesActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.FilesListView)
 
-        var arrayAdapter = ArrayAdapter(this, R.layout.file_text_view, getFileList())
-        listView.adapter = arrayAdapter
+        initAdapter(getFileList(), this)
+
+        listView.adapter = FilesArrayAdapter
     }
 }
