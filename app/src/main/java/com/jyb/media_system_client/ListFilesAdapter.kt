@@ -6,15 +6,15 @@ import com.fasterxml.jackson.module.kotlin.readValue
 data class Root(val element: List<Element>)
 data class BigRoot(val root: Root)
 data class Element(val type: String,
-                   val uid: Int,
+                   val uid: Long,
                    val access_time: String,
-                   val gid: Int,
+                   val gid: Long,
                    val modification_time: String,
                    val name: String,
                    val path: String,
-                   val mode: Int,
+                   val mode: Long,
                    val uri: String,
-                   val size: Int,
+                   val size: Long,
                    )
 
 public var FilesArrayAdapter: ArrayAdapter<String>? = null

@@ -8,6 +8,12 @@ import android.os.Looper
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
+
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
+import androidx.fragment.app.FragmentActivity
+
 
 class ListFilesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,29 +22,31 @@ class ListFilesActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.FilesListView)
 
-//        makeFileListRequest()
-
         initAdapter(FilesList, this)
 
         listView.adapter = FilesArrayAdapter
+
+//        listView.setOnItemClickListener { parent, view, position, id ->
+//            val item = (view as TextView).text.toString()
+//            playFile(item)
+//        }
     }
 
 
-    public fun updateList(view: View): Unit {
-        makeFileListRequest()
+    fun updateList(view: View) {
+//        makeFileListRequest()
+//
+//        Handler(Looper.getMainLooper()).postDelayed(
+//            {
+//                var foo: ArrayList<String> = FilesList.clone() as ArrayList<String>
+//                FilesArrayAdapter?.clear()
+//                FilesArrayAdapter?.addAll(foo)
+//            },
+//            2000
+//        )
+    }
 
-        Handler(Looper.getMainLooper()).postDelayed(
-            {
-                // This method will be executed once the timer is over
-                val idk: ArrayList<String> = ArrayList()
-                idk.add("please")
-                idk.add("please")
-                idk.add("please")
-                var foo: ArrayList<String> = FilesList.clone() as ArrayList<String>
-                FilesArrayAdapter?.clear()
-                FilesArrayAdapter?.addAll(foo)
-            },
-            2000 // value in milliseconds
-        )
+    fun playFile(view: View) {
+        testPlayFile()
     }
 }
