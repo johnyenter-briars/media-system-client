@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MediaControlActivity">
+
+    <Button
+        android:id="@+id/DownButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="down"
+        android:text="Down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UpButton"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <Button
+        android:id="@+id/UpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:onClick="up"
+        android:text="Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/LeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="left"
+        android:text="Left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/UpButton"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265" />
+
+    <Button
+        android:id="@+id/RightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="right"
+        android:text="Right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toEndOf="@+id/UpButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265" />
+
+    <Button
+        android:id="@+id/SelectButton"
+        android:layout_width="110dp"
+        android:layout_height="57dp"
+        android:onClick="select"
+        android:text="Select"
+        app:layout_constraintBottom_toTopOf="@+id/DownButton"
+        app:layout_constraintEnd_toStartOf="@+id/RightButton"
+        app:layout_constraintStart_toEndOf="@+id/LeftButton"
+        app:layout_constraintTop_toBottomOf="@+id/UpButton" />
+
+    <Button
+        android:id="@+id/EscapeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="back"
+        android:text="Escape"
+        app:layout_constraintBottom_toTopOf="@+id/LeftButton"
+        app:layout_constraintEnd_toStartOf="@+id/UpButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="togglePlayPause"
+        android:text="Play/Pause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DownButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

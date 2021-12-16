@@ -19,4 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         startActivity(foo)
     }
+
+    public fun moveToMediaActivity(view: View): Unit {
+        var foo = Intent(this, MediaControlActivity::class.java)
+
+        startActivity(foo)
+    }
 }

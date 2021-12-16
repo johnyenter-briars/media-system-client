@@ -3,6 +3,7 @@
     package="com.jyb.media_system_client">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediasystemclient"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
         <activity
-            android:name="com.jyb.media_system_client.MainActivity"
+            android:name=".MediaControlActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,13 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.jyb.media_system_client.ListFilesActivity"
+            android:name=".ListFilesActivity"
             android:exported="false" />
         <activity
-            android:name="com.jyb.media_system_client.SettingsActivity"
+            android:name=".SettingsActivity"
             android:exported="true"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
     </application>
 
 </manifest>
