@@ -5,9 +5,7 @@ import okhttp3.*
 import okhttp3.Callback
 import okhttp3.Response
 import java.io.IOException
-import okhttp3.FormBody
 
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -15,44 +13,139 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 private val client = OkHttpClient()
 
-//interface NetworkService {
-//    @GET("/api/list/%2Fhome%2Fpi%2Fvids/")
-//    fun doTheNetworkThing(): Call<String>
-//}
-
 data class Country(val name: String, val capital: String, val languages: List<Language>)
 
 data class Language(val name: String)
 
-const val BaseUrl = "http://192.168.0.8"
+//const val BaseUrl = "http://192.168.0.8"
+const val BaseUrl = "http://192.168.0.10"
 
-//fun makeFileListRequest() {
-////    var path = "api/list/%2Fhome%2Fjohn%2Fvids/"
-//    var path = "api/list/%2Fmnt%2Fmedia%2Fvids"
-//
-//    val request = Request.Builder()
-//        .url("$BaseUrl/$path")
-//        .build()
-//
-//    client.newCall(request).enqueue(object : Callback {
-//        override fun onFailure(call: Call, e: IOException) {
-//            e.printStackTrace()
-//        }
-//
-//        override fun onResponse(call: Call, response: Response) {
-//            response.use {
-//                if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//
-//                var jsonBody = response.body!!.string()
-//
-//                updateAdapter(jsonBody)
-//            }
-//        }
-//    })
-//}
+val a = { i: Int -> println(i) }
+
+fun postRequest(requestObject: String, callback: (Int) -> Unit) {
+    val requestBody = requestObject.toRequestBody("application/json".toMediaTypeOrNull())
+
+    val request = Request.Builder()
+        .url("$BaseUrl/jsonrpc")
+        .post(requestBody)
+        .build()
+
+    client.newCall(request).enqueue(object : Callback {
+        override fun onFailure(call: Call, e: IOException) {
+            e.printStackTrace()
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+            response.use {
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+                var jsonBody = response.body!!.string()
+
+                if (callback != null) {
+                    callback(5)
+                }
+            }
+        }
+    })
+}
+
+fun inputSelect() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Select"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputBack() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Back"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputExecuteAction() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.ExecuteAction"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputLeft() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Left"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputRight() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Right"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputDown() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Down"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun inputUp() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Input.Up"
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun stopPlayer() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Player.Stop",
+    "params": {
+        "playerid": 1
+    }
+}"""
+
+    postRequest(requestObject, a)
+}
+
+fun togglePlayPausePlayer() {
+    val requestObject = """{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "Player.PlayPause",
+    "params": {
+        "playerid": 1
+    }
+}"""
+
+    postRequest(requestObject, a)
+}
 
 fun testPlayFile() {
-    val baseUrl = "http://192.168.0.10/jsonrpc"
     val requestObject = """{
     "jsonrpc": "2.0",
     "id": 1,
@@ -64,59 +157,5 @@ fun testPlayFile() {
     }
 }"""
 
-    val requestBody = requestObject.toRequestBody("application/json".toMediaTypeOrNull())
-
-    val request = Request.Builder()
-        .url(baseUrl)
-        .post(requestBody)
-        .build()
-
-    client.newCall(request).enqueue(object : Callback {
-        override fun onFailure(call: Call, e: IOException) {
-            e.printStackTrace()
-        }
-
-        override fun onResponse(call: Call, response: Response) {
-            response.use {
-                if (!response.isSuccessful) {
-                    var idk = "test"
-
-                }
-
-                var jsonBody = response.body!!.string()
-            }
-        }
-    })
-
+    postRequest(requestObject, a)
 }
-
-//fun playFile(fileName: String){
-//    val path = "api/play/"
-//
-////    var encodedFileName = fileName.replace(":", "%3A").replace("/", "%2F")
-//    var encodedFileName = fileName.replace("file://", "").replace("/", "%2F")
-//
-//    val formBody: RequestBody = FormBody.Builder()
-//        .build()
-//
-//    var idk = "$BaseUrl/$path$encodedFileName"
-//
-//    val request = Request.Builder()
-//        .url("$BaseUrl/$path$encodedFileName")
-//        .post(formBody)
-//        .build()
-//
-//    client.newCall(request).enqueue(object : Callback {
-//        override fun onFailure(call: Call, e: IOException) {
-//            e.printStackTrace()
-//        }
-//
-//        override fun onResponse(call: Call, response: Response) {
-//            response.use {
-//                if (!response.isSuccessful) throw IOException("Unexpected code $response")
-//
-//                var jsonBody = response.body!!.string()
-//            }
-//        }
-//    })
-//}
