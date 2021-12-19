@@ -10,15 +10,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
-
 private val client = OkHttpClient()
 
-data class Country(val name: String, val capital: String, val languages: List<Language>)
-
-data class Language(val name: String)
-
-//const val BaseUrl = "http://192.168.0.8"
-const val BaseUrl = "http://192.168.0.10"
+const val BaseUrl = "http://192.168.0.6"
 
 val a = { i: Int -> println(i) }
 
@@ -48,6 +42,20 @@ fun postRequest(requestObject: String, callback: (Int) -> Unit) {
         }
     })
 }
+
+fun setVolume(level: Int) {
+    val requestObject = """{
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "Application.SetVolume",
+        "params": {
+            "volume": $level
+        }
+}"""
+
+    postRequest(requestObject, a)
+}
+
 
 fun inputSelect() {
     val requestObject = """{
