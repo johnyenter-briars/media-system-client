@@ -43,6 +43,24 @@ fun postRequest(requestObject: String, callback: (Int) -> Unit) {
     })
 }
 
+fun seekPlayer(percentage: Int) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "Player.Seek",
+            "params": {
+                "playerid": 1,
+                "value": {
+                    "percentage": $percentage
+                }
+            }
+        }
+"""
+
+    postRequest(requestObject, a)
+}
+
 fun setVolume(level: Int) {
     val requestObject = """{
         "jsonrpc": "2.0",

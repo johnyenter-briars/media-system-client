@@ -98,4 +98,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DownButton" />
+
+    <SeekBar
+        android:id="@+id/PlaybackBar"
+        android:layout_width="341dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VolumeBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
