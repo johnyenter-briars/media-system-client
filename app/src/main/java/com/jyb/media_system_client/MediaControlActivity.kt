@@ -3,7 +3,9 @@ package com.jyb.media_system_client
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.SeekBar
+import androidx.core.widget.doOnTextChanged
 
 public class VolumeListener : SeekBar.OnSeekBarChangeListener {
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -43,38 +45,46 @@ class MediaControlActivity : AppCompatActivity() {
         var playbackSlider: SeekBar = findViewById(R.id.PlaybackBar)
         var pListener = PlaybackListener()
         playbackSlider.setOnSeekBarChangeListener(pListener)
+
+        var textBox = findViewById<EditText>(R.id.EditTextInput)
+        textBox.doOnTextChanged { text, start, before, count -> inputText(text.toString()) }
+    }
+
+    fun sendText(view: View) {
+        var textBox = findViewById<EditText>(R.id.EditTextInput)
+        inputSendText(textBox.text.toString())
     }
 
 
-    public fun up(view: View): Unit {
+    fun up(view: View) {
         inputUp()
     }
 
-    public fun down(view: View): Unit {
+    fun down(view: View) {
         inputDown()
     }
 
-    public fun left(view: View): Unit {
+    fun left(view: View) {
         inputLeft()
     }
 
-    public fun right(view: View): Unit {
+    fun right(view: View) {
         inputRight()
     }
 
-    public fun executeAction(view: View): Unit {
+    fun executeAction(view: View) {
         inputExecuteAction()
     }
 
-    public fun select(view: View): Unit {
+    fun select(view: View) {
         inputSelect()
     }
 
-    public fun back(view: View): Unit {
+    fun back(view: View) {
         inputBack()
     }
 
-    public fun togglePlayPause(view: View): Unit {
+    fun togglePlayPause(view: View) {
         togglePlayPausePlayer()
     }
 }
