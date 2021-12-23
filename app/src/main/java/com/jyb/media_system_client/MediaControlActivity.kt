@@ -1,46 +1,77 @@
 package com.jyb.media_system_client
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.SeekBar
+import androidx.core.widget.doOnTextChanged
+import com.jyb.media_system_client.listener.*
+import com.jyb.media_system_client.osmc.*
+
 
 class MediaControlActivity : AppCompatActivity() {
+    private val playbackSpeedState = PlaybackSpeedState()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_media_control)
+
+        findViewById<Button>(R.id.ButtonPlay)
+            .setOnLongClickListener(DoubleClickListener(playbackSpeedState))
+
+        findViewById<SeekBar>(R.id.VolumeBar).setOnSeekBarChangeListener(VolumeListener())
+
+        findViewById<SeekBar>(R.id.PlaybackBar).setOnSeekBarChangeListener(PlaybackListener())
+
+        findViewById<EditText>(R.id.EditTextInput)
+            .doOnTextChanged { text, start, before, count -> inputText(text.toString()) }
     }
 
+    fun rewind(view: View) {
+        setPlayerSpeed(playbackSpeedState.decSpeed())
+    }
 
-    public fun up(view: View): Unit {
+    fun fastForward(view: View) {
+        setPlayerSpeed(playbackSpeedState.incSpeed())
+    }
+
+    fun sendText(view: View) {
+        var textBox = findViewById<EditText>(R.id.EditTextInput)
+        inputSendText(textBox.text.toString())
+    }
+
+    fun up(view: View) {
         inputUp()
     }
 
-    public fun down(view: View): Unit {
+    fun down(view: View) {
         inputDown()
     }
 
-    public fun left(view: View): Unit {
+    fun left(view: View) {
         inputLeft()
     }
 
-    public fun right(view: View): Unit {
+    fun right(view: View) {
         inputRight()
     }
 
-    public fun executeAction(view: View): Unit {
+    fun executeAction(view: View) {
         inputExecuteAction()
     }
 
-    public fun select(view: View): Unit {
+    fun select(view: View) {
         inputSelect()
     }
 
-    public fun back(view: View): Unit {
+    fun back(view: View) {
         inputBack()
     }
 
-    public fun togglePlayPause(view: View): Unit {
+    fun togglePlayPause(view: View) {
         togglePlayPausePlayer()
     }
 }
