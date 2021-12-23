@@ -12,10 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    public fun moveToFilesList(view: View): Unit {
-        startActivity(Intent(this, ListFilesActivity::class.java))
-    }
-
     public fun moveToMediaActivity(view: View): Unit {
         startActivity(Intent(this, MediaControlActivity::class.java))
     }

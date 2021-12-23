@@ -7,6 +7,19 @@
     tools:context=".MediaControlActivity">
 
     <Button
+        android:id="@+id/ButtonFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fastForward"
+        android:text="FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toEndOf="@+id/ButtonPlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715" />
+
+    <Button
         android:id="@+id/DownButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +93,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/ButtonPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="togglePlayPause"
@@ -94,19 +107,22 @@
         android:id="@+id/VolumeBar"
         android:layout_width="344dp"
         android:layout_height="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonPlay"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DownButton" />
+        app:layout_constraintTop_toBottomOf="@+id/DownButton"
+        app:layout_constraintVertical_bias="0.171" />
 
     <SeekBar
         android:id="@+id/PlaybackBar"
         android:layout_width="341dp"
         android:layout_height="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VolumeBar" />
+        app:layout_constraintTop_toBottomOf="@+id/VolumeBar"
+        app:layout_constraintVertical_bias="0.251" />
 
     <EditText
         android:id="@+id/EditTextInput"
@@ -118,7 +134,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonPlay"
         app:layout_constraintVertical_bias="0.238" />
 
     <Button
@@ -131,4 +147,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditTextInput" />
+
+    <Button
+        android:id="@+id/ButtonRR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="rewind"
+        android:text="RR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonPlay"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.jyb.media_system_client
+package com.jyb.media_system_client.osmc
 
 import okhttp3.OkHttpClient
 import okhttp3.*
@@ -42,6 +42,23 @@ fun postRequest(requestObject: String, callback: (Int) -> Unit) {
         }
     })
 }
+
+fun setPlayerSpeed(speed: Int) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "Player.SetSpeed",
+            "params": {
+                "playerid": 1,
+                "speed": $speed
+            }
+        }
+    """
+
+    postRequest(requestObject, a)
+}
+
 fun inputSendText(text: String) {
     val requestObject = """
         {

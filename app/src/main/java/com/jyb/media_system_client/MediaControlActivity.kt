@@ -3,58 +3,45 @@ package com.jyb.media_system_client
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import androidx.core.widget.doOnTextChanged
+import com.jyb.media_system_client.listener.*
+import com.jyb.media_system_client.osmc.*
 
-public class VolumeListener : SeekBar.OnSeekBarChangeListener {
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        setVolume(progress)
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-    }
-
-}
-
-public class PlaybackListener : SeekBar.OnSeekBarChangeListener {
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        seekPlayer(progress)
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-    }
-
-}
 
 class MediaControlActivity : AppCompatActivity() {
+    private val playbackSpeedState = PlaybackSpeedState()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_media_control)
 
-        var volumeSlider: SeekBar = findViewById(R.id.VolumeBar)
-        var vListener = VolumeListener()
-        volumeSlider.setOnSeekBarChangeListener(vListener)
+        findViewById<Button>(R.id.ButtonPlay)
+            .setOnLongClickListener(DoubleClickListener(playbackSpeedState))
 
-        var playbackSlider: SeekBar = findViewById(R.id.PlaybackBar)
-        var pListener = PlaybackListener()
-        playbackSlider.setOnSeekBarChangeListener(pListener)
+        findViewById<SeekBar>(R.id.VolumeBar).setOnSeekBarChangeListener(VolumeListener())
 
-        var textBox = findViewById<EditText>(R.id.EditTextInput)
-        textBox.doOnTextChanged { text, start, before, count -> inputText(text.toString()) }
+        findViewById<SeekBar>(R.id.PlaybackBar).setOnSeekBarChangeListener(PlaybackListener())
+
+        findViewById<EditText>(R.id.EditTextInput)
+            .doOnTextChanged { text, start, before, count -> inputText(text.toString()) }
+    }
+
+    fun rewind(view: View) {
+        setPlayerSpeed(playbackSpeedState.decSpeed())
+    }
+
+    fun fastForward(view: View) {
+        setPlayerSpeed(playbackSpeedState.incSpeed())
     }
 
     fun sendText(view: View) {
         var textBox = findViewById<EditText>(R.id.EditTextInput)
         inputSendText(textBox.text.toString())
     }
-
 
     fun up(view: View) {
         inputUp()
