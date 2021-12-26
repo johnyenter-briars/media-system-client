@@ -1,4 +1,4 @@
-package com.jyb.media_system_client.osmc
+package com.jyb.media_system_client.kodi
 
 import okhttp3.OkHttpClient
 import okhttp3.*
@@ -7,22 +7,19 @@ import okhttp3.Response
 import java.io.IOException
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
 private val client = OkHttpClient()
 
-const val BaseUrl = "http://192.168.0.50"
-
 val a = { i: Int -> println(i) }
 
-fun postRequest(requestObject: String, callback: (Int) -> Unit) {
+fun postRequest(requestObject: String, apiSettings: KodiApiSettings, callback: (Int) -> Unit) {
     val requestBody = requestObject.toRequestBody("application/json".toMediaTypeOrNull())
 
-    var credential = Credentials.basic(Username, Password);
+    var credential = Credentials.basic(apiSettings.Username, apiSettings.Password);
 
     val request = Request.Builder()
-        .url("$BaseUrl:$Port/jsonrpc")
+        .url("http://${apiSettings.IpAddress}:${apiSettings.Port}/jsonrpc")
         .header("Authorization", credential)
         .post(requestBody)
         .build()
@@ -46,7 +43,7 @@ fun postRequest(requestObject: String, callback: (Int) -> Unit) {
     })
 }
 
-fun setPlayerSpeed(speed: Int) {
+fun setPlayerSpeed(speed: Int, apiSettings: KodiApiSettings) {
     val requestObject = """
         {
             "jsonrpc": "2.0",
@@ -59,10 +56,10 @@ fun setPlayerSpeed(speed: Int) {
         }
     """
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputSendText(text: String) {
+fun inputSendText(text: String, apiSettings: KodiApiSettings) {
     val requestObject = """
         {
             "jsonrpc": "2.0",
@@ -74,10 +71,10 @@ fun inputSendText(text: String) {
             }
         }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputText(text: String) {
+fun inputText(text: String, apiSettings: KodiApiSettings) {
     val requestObject = """
         {
             "jsonrpc": "2.0",
@@ -89,10 +86,10 @@ fun inputText(text: String) {
             }
         }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun seekPlayer(percentage: Int) {
+fun seekPlayer(percentage: Int, apiSettings: KodiApiSettings) {
     val requestObject = """
         {
             "jsonrpc": "2.0",
@@ -106,10 +103,10 @@ fun seekPlayer(percentage: Int) {
             }
         }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun setVolume(level: Int) {
+fun setVolume(level: Int, apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
@@ -119,81 +116,81 @@ fun setVolume(level: Int) {
         }
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
 
-fun inputSelect() {
+fun inputSelect(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Select"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputBack() {
+fun inputBack(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Back"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputExecuteAction() {
+fun inputExecuteAction(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.ExecuteAction"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputLeft() {
+fun inputLeft(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Left"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputRight() {
+fun inputRight(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Right"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputDown() {
+fun inputDown(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Down"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun inputUp() {
+fun inputUp(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
         "method": "Input.Up"
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun stopPlayer() {
+fun stopPlayer(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
@@ -203,10 +200,10 @@ fun stopPlayer() {
         }
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun togglePlayPausePlayer() {
+fun togglePlayPausePlayer(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
@@ -216,10 +213,10 @@ fun togglePlayPausePlayer() {
         }
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }
 
-fun testPlayFile() {
+fun testPlayFile(apiSettings: KodiApiSettings) {
     val requestObject = """{
         "jsonrpc": "2.0",
         "id": 1,
@@ -231,5 +228,5 @@ fun testPlayFile() {
         }
     }"""
 
-    postRequest(requestObject, a)
+    postRequest(requestObject, apiSettings, a)
 }

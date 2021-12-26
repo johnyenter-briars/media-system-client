@@ -1,4 +1,4 @@
-package com.jyb.media_system_client.osmc
+package com.jyb.media_system_client.kodi
 
 class PlaybackSpeedState {
     private val MAX_FF_SPEED = 8

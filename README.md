@@ -1,7 +1,7 @@
 # Media System Client
 --- 
 
-Cusotom app for controling my [LibreELEC](https://libreelec.tv/) media system.
+Cusotom app for controling my [LibreELEC](https://libreelec.tv/) media system running on a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/).
 
 The app works by sending POST requests to the Kodi [JSON-RPC](https://kodi.wiki/view/JSON-RPC_API/v10) API over my local network.
 

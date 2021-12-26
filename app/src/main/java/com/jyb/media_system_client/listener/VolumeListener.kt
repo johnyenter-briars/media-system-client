@@ -1,11 +1,12 @@
 package com.jyb.media_system_client.listener
 
 import android.widget.SeekBar
-import com.jyb.media_system_client.osmc.setVolume
+import com.jyb.media_system_client.kodi.KodiApiSettings
+import com.jyb.media_system_client.kodi.setVolume
 
-class VolumeListener : SeekBar.OnSeekBarChangeListener {
+class VolumeListener(private val ApiSettings: KodiApiSettings) : SeekBar.OnSeekBarChangeListener {
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        setVolume(progress)
+        setVolume(progress, ApiSettings)
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
