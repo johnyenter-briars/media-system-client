@@ -12,7 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    public fun moveToMediaActivity(view: View): Unit {
+    fun moveToMediaActivity(view: View) {
         startActivity(Intent(this, MediaControlActivity::class.java))
+    }
+
+    fun moveToSettingsActivity(view: View) {
+        startActivity(Intent(this, SettingsActivity::class.java))
     }
 }

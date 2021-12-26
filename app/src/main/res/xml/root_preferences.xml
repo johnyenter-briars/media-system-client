@@ -30,6 +30,19 @@
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" />
 
+        <EditTextPreference
+            app:key="media-system-ip"
+            app:title="Local IP Address of Media System"/>
+        <EditTextPreference
+            app:key="media-system-port"
+            app:title="Local Port of Media System"/>
+        <EditTextPreference
+            app:key="media-system-username"
+            app:title="Username of Kodi API Interface"/>
+        <EditTextPreference
+            app:key="media-system-password"
+            app:title="Password of Kodi API Interface"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
