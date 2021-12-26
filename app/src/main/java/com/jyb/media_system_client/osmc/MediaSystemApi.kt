@@ -12,15 +12,18 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 private val client = OkHttpClient()
 
-const val BaseUrl = "http://192.168.0.6"
+const val BaseUrl = "http://192.168.0.50"
 
 val a = { i: Int -> println(i) }
 
 fun postRequest(requestObject: String, callback: (Int) -> Unit) {
     val requestBody = requestObject.toRequestBody("application/json".toMediaTypeOrNull())
 
+    var credential = Credentials.basic(Username, Password);
+
     val request = Request.Builder()
-        .url("$BaseUrl/jsonrpc")
+        .url("$BaseUrl:$Port/jsonrpc")
+        .header("Authorization", credential)
         .post(requestBody)
         .build()
 
