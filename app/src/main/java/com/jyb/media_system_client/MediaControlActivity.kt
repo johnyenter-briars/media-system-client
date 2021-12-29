@@ -46,6 +46,9 @@ class MediaControlActivity : AppCompatActivity() {
         return ApiSettings
     }
 
+    fun showOSD(view: View) {
+        com.jyb.media_system_client.kodi.showOSD(updatedApiSettings())
+    }
 
     fun rewind(view: View) {
         setPlayerSpeed(playbackSpeedState.decSpeed(), updatedApiSettings())

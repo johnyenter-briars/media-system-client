@@ -42,6 +42,17 @@ fun postRequest(requestObject: String, apiSettings: KodiApiSettings, callback: (
         }
     })
 }
+fun showOSD(apiSettings: KodiApiSettings) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "method": "Input.ShowOSD",
+            "id": 1
+        }
+    """
+
+    postRequest(requestObject, apiSettings, a)
+}
 
 fun powerSuspend(apiSettings: KodiApiSettings) {
     val requestObject = """
