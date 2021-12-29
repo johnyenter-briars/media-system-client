@@ -43,6 +43,30 @@ fun postRequest(requestObject: String, apiSettings: KodiApiSettings, callback: (
     })
 }
 
+fun powerSuspend(apiSettings: KodiApiSettings) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "method": "System.Suspend",
+            "id": 1
+        }
+    """
+
+    postRequest(requestObject, apiSettings, a)
+}
+
+fun powerReboot(apiSettings: KodiApiSettings) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "method": "System.Reboot",
+            "id": 1
+        }
+    """
+
+    postRequest(requestObject, apiSettings, a)
+}
+
 fun setPlayerSpeed(speed: Int, apiSettings: KodiApiSettings) {
     val requestObject = """
         {
