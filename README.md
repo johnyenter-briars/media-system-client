@@ -3,16 +3,19 @@
 
 Custom app for controling my [LibreELEC](https://libreelec.tv/) media system running on a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/).
 
-The app works by sending POST requests to the Kodi [JSON-RPC](https://kodi.wiki/view/JSON-RPC_API/v10) API over my local network.
+The app works by sending POST requests to a [KODI](https://kodi.tv/) [JSON-RPC](https://kodi.wiki/view/JSON-RPC_API/v10) API over my local network.
 
 #### Currently Supports
 - Basic video playback controls
 - Basic volume support
 - Arrow key interaction
 - Text input
+- Basic Power control
+- OSD toggle
 
 #### Potentional Enhancements
 - Remote Spotify playback
+- Youtube addon controls
 - Wireless room light control
 
 ### Philosphy

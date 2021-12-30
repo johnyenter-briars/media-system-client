@@ -14,10 +14,10 @@
         android:text="FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toEndOf="@+id/ButtonPlay"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintVertical_bias="0.578" />
 
     <Button
         android:id="@+id/DownButton"
@@ -36,11 +36,11 @@
         android:id="@+id/UpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="56dp"
         android:onClick="up"
         android:text="Up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,10 +52,10 @@
         android:text="Left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/UpButton"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <Button
         android:id="@+id/RightButton"
@@ -65,15 +65,15 @@
         android:text="Right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toEndOf="@+id/UpButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <Button
         android:id="@+id/SelectButton"
-        android:layout_width="110dp"
-        android:layout_height="57dp"
+        android:layout_width="105dp"
+        android:layout_height="70dp"
         android:onClick="select"
         android:text="Select"
         app:layout_constraintBottom_toTopOf="@+id/DownButton"
@@ -89,8 +89,10 @@
         android:text="Escape"
         app:layout_constraintBottom_toTopOf="@+id/LeftButton"
         app:layout_constraintEnd_toStartOf="@+id/UpButton"
+        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
 
     <Button
         android:id="@+id/ButtonPlay"
@@ -100,8 +102,10 @@
         android:text="Play/Pause"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DownButton" />
+        app:layout_constraintTop_toBottomOf="@+id/DownButton"
+        app:layout_constraintVertical_bias="0.314" />
 
     <SeekBar
         android:id="@+id/VolumeBar"
@@ -130,12 +134,11 @@
         android:layout_height="47dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ButtonPlay"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.477" />
 
     <Button
         android:id="@+id/SendTextButton"
@@ -156,9 +159,22 @@
         android:text="RR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ButtonPlay"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintVertical_bias="0.578" />
+
+    <Button
+        android:id="@+id/OsdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toggleOSD"
+        android:text="Toggle OSD"
+        app:layout_constraintBottom_toTopOf="@+id/RightButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toEndOf="@+id/UpButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

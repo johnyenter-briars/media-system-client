@@ -46,6 +46,9 @@ class MediaControlActivity : AppCompatActivity() {
         return ApiSettings
     }
 
+    fun toggleOSD(view: View) {
+       showOSD(updatedApiSettings())
+    }
 
     fun rewind(view: View) {
         setPlayerSpeed(playbackSpeedState.decSpeed(), updatedApiSettings())
