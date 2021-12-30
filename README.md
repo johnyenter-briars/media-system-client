@@ -20,3 +20,11 @@ The app works by sending POST requests to a [KODI](https://kodi.tv/) [JSON-RPC](
 
 ### Philosphy
 The objective behind creating this app is to be rid of the proprietary operating system installed on my Roku TV. By using LibreELEC and controlling it through a custom app on my phone, the media streaming process can be end-to-end open source.
+
+
+#### Example Screenshots
+<p float="left">
+    <img src="images/image1.jpg" alt="screenshot" width="33%" height="auto">
+    <img src="images/image2.jpg" alt="screnshot" width="33%" height="auto">
+    <img src="images/image3.jpg" alt="screenshot" width="33%" height="auto">
+</p>
