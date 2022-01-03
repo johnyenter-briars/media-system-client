@@ -9,15 +9,22 @@ class PlaybackSpeedState {
         currSpeed = s
     }
 
-    fun incSpeed(): Int{
-        if (currSpeed != MAX_FF_SPEED) {
+    fun ffIncSpeed(): Int{
+        if (currSpeed <= 1) {
+            currSpeed = 2
+        }
+        else if (currSpeed != MAX_FF_SPEED){
             currSpeed += 2
         }
+
         return currSpeed
     }
 
-    fun decSpeed(): Int{
-        if (currSpeed != MAX_RR_SPEED) {
+    fun rrDecSpeed(): Int{
+        if (currSpeed >= 1) {
+            currSpeed = -2
+        }
+        else if (currSpeed != MAX_RR_SPEED) {
             currSpeed -= 2
         }
         return currSpeed

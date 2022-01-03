@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.preference.PreferenceManager
 import com.jyb.media_system_client.kodi.KodiApiSettings
+import com.jyb.media_system_client.kodi.powerOff
 import com.jyb.media_system_client.kodi.powerReboot
 import com.jyb.media_system_client.kodi.powerSuspend
 
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         ApiSettings.Password = sharedPreferences.getString("media-system-password", "")!!
 
         return ApiSettings
+    }
+
+    fun shutdownSystem(view: View) {
+        powerOff(updatedApiSettings())
     }
 
     fun sleep(view: View) {
