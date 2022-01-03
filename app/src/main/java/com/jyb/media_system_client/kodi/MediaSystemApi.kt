@@ -42,6 +42,20 @@ fun postRequest(requestObject: String, apiSettings: KodiApiSettings, callback: (
         }
     })
 }
+
+fun powerOff(apiSettings: KodiApiSettings) {
+    val requestObject = """
+        {
+            "jsonrpc": "2.0",
+            "method": "System.Shutdown",
+            "id": 1
+        }
+    """
+
+    postRequest(requestObject, apiSettings, a)
+}
+
+
 fun showOSD(apiSettings: KodiApiSettings) {
     val requestObject = """
         {
