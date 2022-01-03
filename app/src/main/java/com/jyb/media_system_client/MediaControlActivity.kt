@@ -1,7 +1,5 @@
 package com.jyb.media_system_client
 
-import android.content.SharedPreferences
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -51,11 +49,11 @@ class MediaControlActivity : AppCompatActivity() {
     }
 
     fun rewind(view: View) {
-        setPlayerSpeed(playbackSpeedState.decSpeed(), updatedApiSettings())
+        setPlayerSpeed(playbackSpeedState.rrDecSpeed(), updatedApiSettings())
     }
 
     fun fastForward(view: View) {
-        setPlayerSpeed(playbackSpeedState.incSpeed(), updatedApiSettings())
+        setPlayerSpeed(playbackSpeedState.ffIncSpeed(), updatedApiSettings())
     }
 
     fun sendText(view: View) {
